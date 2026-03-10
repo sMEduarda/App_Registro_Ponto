@@ -1,4 +1,6 @@
-﻿namespace App_Registro_Ponto;
+﻿using App_Registro_Ponto.Views;
+
+namespace App_Registro_Ponto;
 
 public partial class App : Application
 {
@@ -6,6 +8,6 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        MainPage = new NavigationPage(new MainPage());
+        MainPage = new RegistroPage();
     }
 }

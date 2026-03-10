@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
-<ContentPage
-    x:Class="App_Registro_Ponto.Views.RegistroPage"
+<ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="App_Registro_Ponto.Views.RegistroPage">
 
     <VerticalStackLayout Padding="30" Spacing="20">
 
-        <Label
+        <Label 
             Text="Registro de Ponto"
             FontSize="26"
             HorizontalOptions="Center"
@@ -15,14 +14,15 @@
 
         <Button
             Text="Registrar Ponto"
-            Clicked="OnRegistrarPonto"
-            HeightRequest="50"/>
+            Clicked="OnRegistrarPonto"/>
 
         <Label
             x:Name="lblLocalizacao"
-            Text="Localização aparecerá aqui"
-            FontSize="16"
-            HorizontalOptions="Center"/>
+            Text="Localização aparecerá aqui"/>
+
+        <Label
+            x:Name="lblHorario"
+            Text="Horário aparecerá aqui"/>
 
     </VerticalStackLayout>
 
