@@ -1,10 +1,9 @@
-﻿namespace App_Registro_Ponto
+﻿namespace App_Registro_Ponto;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

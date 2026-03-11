@@ -1,6 +1,4 @@
-﻿using App_Registro_Ponto.Views;
-
-namespace App_Registro_Ponto;
+﻿namespace App_Registro_Ponto;
 
 public partial class MainPage : ContentPage
 {

@@ -1,13 +1,16 @@
-﻿using App_Registro_Ponto.Views;
-
-namespace App_Registro_Ponto;
+﻿namespace App_Registro_Ponto;
 
 public partial class App : Application
 {
     public App()
     {
         InitializeComponent();
-
-        MainPage = new RegistroPage();
     }
+
+
+protected override Window CreateWindow(IActivationState activationState)
+    {
+        return new Window(new RegistroPage());
+    }
+
 }

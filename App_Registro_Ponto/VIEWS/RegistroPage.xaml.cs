@@ -1,7 +1,6 @@
-using Microsoft.Maui.Controls;
 using Microsoft.Maui.Devices.Sensors;
 
-namespace App_Registro_Ponto.Views;
+namespace App_Registro_Ponto;
 
 public partial class RegistroPage : ContentPage
 {
@@ -10,18 +9,33 @@ public partial class RegistroPage : ContentPage
         InitializeComponent();
     }
 
-    private async void OnRegistrarPonto(object sender, EventArgs e)
+    private async Task<Location?> ObterLocalizacao()
     {
-        var location = await Geolocation.GetLastKnownLocationAsync();
+        var request = new GeolocationRequest(GeolocationAccuracy.High);
+        return await Geolocation.GetLocationAsync(request);
+    }
 
-        if (location != null)
-        {
-            lblLocalizacao.Text = $"Lat: {location.Latitude} | Long: {location.Longitude}";
-            lblHorario.Text = $"Registrado em: {DateTime.Now}";
-        }
-        else
-        {
-            lblLocalizacao.Text = "Não foi possível obter localização.";
-        }
+    private async void OnRegistrarEntrada(object sender, EventArgs e)
+    {
+        var location = await ObterLocalizacao();
+
+        if (location == null)
+            return;
+
+        lblEntradaHora.Text = $"Hora Entrada: {DateTime.Now}";
+        lblEntradaLat.Text = $"Latitude Entrada: {location.Latitude}";
+        lblEntradaLong.Text = $"Longitude Entrada: {location.Longitude}";
+    }
+
+    private async void OnRegistrarSaida(object sender, EventArgs e)
+    {
+        var location = await ObterLocalizacao();
+
+        if (location == null)
+            return;
+
+        lblSaidaHora.Text = $"Hora Saída: {DateTime.Now}";
+        lblSaidaLat.Text = $"Latitude Saída: {location.Latitude}";
+        lblSaidaLong.Text = $"Longitude Saída: {location.Longitude}";
     }
 }
